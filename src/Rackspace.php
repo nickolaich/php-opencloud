@@ -3,9 +3,9 @@
 namespace Rackspace;
 
 use GuzzleHttp\Client;
-use OpenCloud\Common\Service\Builder;
-use OpenCloud\Common\Transport\HandlerStack;
-use OpenCloud\Common\Transport\Utils;
+use OpenStack\Common\Service\Builder;
+use OpenStack\Common\Transport\HandlerStack;
+use OpenStack\Common\Transport\Utils;
 use Rackspace\Identity\v2\Service;
 
 class Rackspace
@@ -40,13 +40,13 @@ class Rackspace
     public function objectStoreV1(array $options = []): \Rackspace\ObjectStore\v1\Service
     {
         $defaults = ['catalogName' => 'cloudFiles', 'catalogType' => 'object-store'];
-        return $this->builder->createService('ObjectStore', 1, array_merge($defaults, $options));
+        return $this->builder->createService('ObjectStore\v1', array_merge($defaults, $options));
     }
 
     public function objectStoreCdnV1(array $options = []): \Rackspace\ObjectStoreCDN\v1\Service
     {
         $defaults = ['catalogName' => 'cloudFilesCDN', 'catalogType' => 'rax:object-cdn'];
-        return $this->builder->createService('ObjectStoreCDN', 1, array_merge($defaults, $options));
+        return $this->builder->createService('ObjectStoreCDN\v1', array_merge($defaults, $options));
     }
 
     /**
